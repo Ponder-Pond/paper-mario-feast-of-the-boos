@@ -76,6 +76,7 @@ vram_classes:
 
 asset_stack:
   - fotb
+  - mod
   - dx
   - us
 segments:

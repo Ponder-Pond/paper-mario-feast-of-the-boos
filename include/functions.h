@@ -5,8 +5,9 @@
 #include "common.h"
 #include "map.h"
 #include "enums.h"
-#include "stdlib/stdarg.h"
-#include "libc/xstdio.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #ifdef _LANGUAGE_C_PLUS_PLUS
 extern "C" {
@@ -21,7 +22,11 @@ void boot_idle(void* data);
 void boot_main(void* data);
 
 void is_debug_init(void);
-[[noreturn]] void is_debug_panic(const char* message);
+NORETURN void is_debug_panic(const char* message);
+
+// TODO: migrate to vsnprintf on modern libc
+typedef char *outfun(char*,const char*,size_t);
+int _Printf(outfun prout, char *arg, const char *fmt, va_list args);
 
 f32 signF(f32 val);
 
