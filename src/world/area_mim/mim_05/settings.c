@@ -1,6 +1,6 @@
 #include "mim_05.h"
 
-EntryList N(Entrances) = {
+EntryList Entrances = {
     [mim_05_ENTRY_0]    {    0.0,    0.0, -530.0,  180.0 },
     [mim_05_ENTRY_1]    { -530.0,    0.0,    0.0,   90.0 },
     [mim_05_ENTRY_2]    {    0.0,    0.0,  530.0,    0.0 },
@@ -8,9 +8,9 @@ EntryList N(Entrances) = {
 };
 
 MapSettings N(settings) = {
-    .main = &N(EVS_Main),
-    .entryList = &N(Entrances),
-    .entryCount = ENTRY_COUNT(N(Entrances)),
+    .main = &::EVS_Main,
+    .entryList = &Entrances,
+    .entryCount = ENTRY_COUNT(Entrances),
     .background = &gBackgroundImage,
     .tattle = { MSG_MapTattle_mim_05 },
 };

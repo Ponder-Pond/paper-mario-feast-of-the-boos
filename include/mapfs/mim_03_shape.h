@@ -1,4 +1,6 @@
-#define MODEL_Root              0xB0
+#define MODEL_Root              0xB2
+#define MODEL_BluePipe          0xB1
+#define MODEL_RockBlockade      0xB0
 #define MODEL_kinoko            0xAF
 #define MODEL_o232              0xAE
 #define MODEL_o231              0xAD

@@ -129,17 +129,17 @@ EvtScript EVS_Init_Inner = {
     Call(BindTakeTurn, ACTOR_SELF, Ref(EVS_TakeTurn))
     Call(BindIdle, ACTOR_SELF, Ref(EVS_Idle))
     Call(BindHandleEvent, ACTOR_SELF, Ref(EVS_HandleEvent))
-    // Call(SetActorVar, ACTOR_SELF, AVAR_RedDead, FALSE)
-    Call(SetActorVar, ACTOR_SELF, AVAR_HitBlue, FALSE)
-    Call(SetActorVar, ACTOR_SELF, AVAR_BlueDead, FALSE)
-    Call(SetActorVar, ACTOR_SELF, AVAR_Weakened, FALSE)
+    // Call(SetActorVar, ACTOR_SELF, AVAR_RedDead, false)
+    Call(SetActorVar, ACTOR_SELF, AVAR_HitBlue, false)
+    Call(SetActorVar, ACTOR_SELF, AVAR_BlueDead, false)
+    Call(SetActorVar, ACTOR_SELF, AVAR_Weakened, false)
     Return
     End
 };
 
 EvtScript EVS_Idle = {
     // Call(GetActorVar, ACTOR_SELF, AVAR_BlueDead, LVar0)
-    // IfEq(LVar0, TRUE)
+    // IfEq(LVar0, true)
     //     Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(FireAnims))
     // Else
         Label(10)
@@ -193,7 +193,7 @@ EvtScript EVS_Idle = {
 };
 
 EvtScript EVS_HandleEvent = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(1.0), Float(1.0))
     Call(GetLastEvent, ACTOR_SELF, LVar0)
@@ -209,7 +209,7 @@ EvtScript EVS_HandleEvent = {
             SetConst(LVar1, ANIM_Goomates_Red_Hurt)
             ExecWait(EVS_Enemy_SpinSmashHit)
         CaseEq(EVENT_SPIN_SMASH_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY0, 1, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY0, 1, true)
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_Goomates_Red_Hurt)
             ExecWait(EVS_Enemy_SpinSmashHit)
@@ -224,19 +224,19 @@ EvtScript EVS_HandleEvent = {
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_Goomates_Red_Hurt)
             ExecWait(EVS_Enemy_Knockback)
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Dizzy)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Wait(5)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.6))
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
         CaseEq(EVENT_SHOCK_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY0, 1, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY0, 1, true)
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_Goomates_Red_Hurt)
             ExecWait(EVS_Enemy_ShockHit)
@@ -254,7 +254,7 @@ EvtScript EVS_HandleEvent = {
             ExecWait(EVS_Enemy_NoDamageHit)
         EndCaseGroup
         CaseEq(EVENT_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY0, 1, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY0, 1, true)
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_Goomates_Red_Hurt)
             ExecWait(EVS_Enemy_Hit)
@@ -268,7 +268,7 @@ EvtScript EVS_HandleEvent = {
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Run)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(4.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(HPBarToHome, ACTOR_SELF)
         CaseEq(EVENT_RECOVER_STATUS)
@@ -294,18 +294,18 @@ EvtScript EVS_HandleEvent = {
     EndSwitch
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_TakeTurn = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(GetActorVar, ACTOR_SELF, AVAR_BlueDead, LVar3)
-    IfEq(LVar3, FALSE)
+    IfEq(LVar3, false)
         Call(GetActorVar, ACTOR_SELF, AVAR_HitBlue, LVar4)
-        IfEq(LVar4, FALSE)
+        IfEq(LVar4, false)
             ExecWait(EVS_Attack_Headbonk)
         Else
             ExecWait(EVS_Attack_Firebonk)
@@ -321,7 +321,7 @@ EvtScript EVS_TakeTurn = {
         ExecWait(EVS_Attack_FireBurst)
     EndIf
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
@@ -329,17 +329,17 @@ EvtScript EVS_TakeTurn = {
 #include "common/CalculateArcsinDeg.inc.c"
 
 EvtScript EVS_Attack_Headbonk = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
     Call(UseBattleCamPreset, BTL_CAM_ENEMY_APPROACH)
     Call(BattleCamTargetActor, ACTOR_SELF)
-    Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, FALSE)
+    Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, false)
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Run)
     Call(SetGoalToTarget, ACTOR_SELF)
     Call(AddGoalPos, ACTOR_SELF, 50, 0, 0)
     Call(SetActorSpeed, ACTOR_SELF, Float(6.0))
-    Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+    Call(RunToGoal, ACTOR_SELF, 0, false)
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
     Call(SetActorDispOffset, ACTOR_SELF, 0, -1, 0)
     Wait(1)
@@ -376,7 +376,7 @@ EvtScript EVS_Attack_Headbonk = {
                 Wait(6)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 16, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 16, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Sleep)
             Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
             Call(SetActorDispOffset, ACTOR_SELF, 0, 5, 0)
@@ -410,7 +410,7 @@ EvtScript EVS_Attack_Headbonk = {
                 EndLoop
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 15, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 15, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Dizzy)
             Wait(5)
             Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
@@ -420,16 +420,16 @@ EvtScript EVS_Attack_Headbonk = {
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(SetActorYaw, ACTOR_SELF, 0)
             Wait(5)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.6))
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Call(RemoveActorDecoration, ACTOR_SELF, PRT_MAIN, 0)
             Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-            Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+            Call(UseIdleAnimation, ACTOR_SELF, true)
             Return
         EndCaseGroup
         CaseDefault
@@ -452,7 +452,7 @@ EvtScript EVS_Attack_Headbonk = {
                 Wait(6)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 16, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 16, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Midair)
             Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
             Wait(1)
@@ -460,7 +460,7 @@ EvtScript EVS_Attack_Headbonk = {
             Wait(1)
     EndSwitch
     // Call(GetActorVar, ACTOR_SELF, AVAR_Weakened, LVar6)
-    // IfEq(LVar6, FALSE)
+    // IfEq(LVar6, false)
         Call(EnemyDamageTarget, ACTOR_SELF, LVar0, 0, 0, 0, dmgHeadbonk, BS_FLAGS1_TRIGGER_EVENTS)
     // Else
         Call(EnemyDamageTarget, ACTOR_SELF, LVar0, 0, 0, 0, dmgHeadbonkWeak, BS_FLAGS1_TRIGGER_EVENTS)
@@ -481,13 +481,13 @@ EvtScript EVS_Attack_Headbonk = {
             Set(LVar1, 0)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.8))
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 10, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 10, false, true, false)
             Add(LVar0, 30)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 8, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 8, false, true, false)
             Add(LVar0, 20)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 6, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 6, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
             Wait(3)
             Call(YieldTurn)
@@ -495,28 +495,28 @@ EvtScript EVS_Attack_Headbonk = {
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Run)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
         EndCaseGroup
     EndSwitch
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_Attack_Firebonk = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
     Call(UseBattleCamPreset, BTL_CAM_ENEMY_APPROACH)
     Call(BattleCamTargetActor, ACTOR_SELF)
-    Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, FALSE)
+    Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, false)
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Run)
     Call(SetGoalToTarget, ACTOR_SELF)
     Call(AddGoalPos, ACTOR_SELF, 50, 0, 0)
     Call(SetActorSpeed, ACTOR_SELF, Float(6.0))
-    Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+    Call(RunToGoal, ACTOR_SELF, 0, false)
     Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(FireAnims))
     Call(AddActorDecoration, ACTOR_SELF, PRT_MAIN, 0, ACTOR_DECORATION_RED_FLAMES)
     Call(ModifyActorDecoration, ACTOR_SELF, PRT_MAIN, 0, 100, 100, 0, 0)
@@ -557,7 +557,7 @@ EvtScript EVS_Attack_Firebonk = {
                 Wait(6)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Fire_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 16, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 16, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Fire_Sleep)
             Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
             Call(SetActorDispOffset, ACTOR_SELF, 0, 5, 0)
@@ -594,7 +594,7 @@ EvtScript EVS_Attack_Firebonk = {
                 EndLoop
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 15, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 15, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Dizzy)
             Wait(5)
             Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
@@ -604,16 +604,16 @@ EvtScript EVS_Attack_Firebonk = {
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(SetActorYaw, ACTOR_SELF, 0)
             Wait(5)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.6))
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Call(RemoveActorDecoration, ACTOR_SELF, PRT_MAIN, 0)
             Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-            Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+            Call(UseIdleAnimation, ACTOR_SELF, true)
             Return
         EndCaseGroup
         CaseDefault
@@ -636,7 +636,7 @@ EvtScript EVS_Attack_Firebonk = {
                 Wait(6)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Fire_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 16, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 16, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Fire_Midair)
             Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
             Wait(1)
@@ -644,7 +644,7 @@ EvtScript EVS_Attack_Firebonk = {
             Wait(1)
     EndSwitch
     // Call(GetActorVar, ACTOR_SELF, AVAR_Weakened, LVar6)
-    // IfEq(LVar6, TRUE)
+    // IfEq(LVar6, true)
         // Set(LVar7, dmgFirebonkWeak)
         // Set(LVar8, dmgBackFirebonkWeak)
     // Else
@@ -671,13 +671,13 @@ EvtScript EVS_Attack_Firebonk = {
         Set(LVar1, 0)
         Call(SetActorJumpGravity, ACTOR_SELF, Float(1.8))
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(JumpToGoal, ACTOR_SELF, 10, FALSE, TRUE, FALSE)
+        Call(JumpToGoal, ACTOR_SELF, 10, false, true, false)
         Add(LVar0, 30)
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(JumpToGoal, ACTOR_SELF, 8, FALSE, TRUE, FALSE)
+        Call(JumpToGoal, ACTOR_SELF, 8, false, true, false)
         Add(LVar0, 20)
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(JumpToGoal, ACTOR_SELF, 6, FALSE, TRUE, FALSE)
+        Call(JumpToGoal, ACTOR_SELF, 6, false, true, false)
         Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
         Wait(3)
         Call(YieldTurn)
@@ -685,7 +685,7 @@ EvtScript EVS_Attack_Firebonk = {
         Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Run)
         Call(SetGoalToHome, ACTOR_SELF)
         Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-        Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+        Call(RunToGoal, ACTOR_SELF, 0, false)
         Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
     Else
         Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
@@ -705,7 +705,7 @@ EvtScript EVS_Attack_Firebonk = {
         Call(SetGoalToTarget, ACTOR_SELF)
         Call(SetActorJumpGravity, ACTOR_SELF, Float(0.01))
         Call(SetActorSpeed, ACTOR_SELF, Float(15.0))
-        Call(JumpToGoal, ACTOR_SELF, 0, FALSE, TRUE, FALSE)
+        Call(JumpToGoal, ACTOR_SELF, 0, false, true, false)
         Wait(2)
         Call(EnemyDamageTarget, ACTOR_SELF, LVar0, DAMAGE_TYPE_FIRE, 0, 0, LVar8, BS_FLAGS1_TRIGGER_EVENTS)
         Switch(LVar0)
@@ -729,13 +729,13 @@ EvtScript EVS_Attack_Firebonk = {
             Set(LVar1, 0)
             Sub(LVar0, 50)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 30, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 30, false, true, false)
             Sub(LVar0, 40)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 20, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 20, false, true, false)
             Sub(LVar0, 30)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 10, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 10, false, true, false)
             Wait(10)
             Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(DefaultAnims))
             Call(RemoveActorDecoration, ACTOR_SELF, PRT_MAIN, 0)
@@ -749,26 +749,26 @@ EvtScript EVS_Attack_Firebonk = {
             Wait(3)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Idle)
         EndCaseGroup
         EndSwitch
     EndIf
-    Call(SetActorVar, ACTOR_SELF, AVAR_HitBlue, FALSE)
+    Call(SetActorVar, ACTOR_SELF, AVAR_HitBlue, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_Attack_FireBurst = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
     Call(SetBattleCamDist, 500)
     Call(BattleCamTargetActor, ACTOR_SELF)
-    Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, FALSE)
+    Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, false)
     Call(MoveBattleCamOver, 20)
     Wait(20)
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Red_Fire_Run)
@@ -787,7 +787,7 @@ EvtScript EVS_Attack_FireBurst = {
     // Call(GetOwnerTarget, LVar0, LVar1)
     // Call(DispatchDamageEvent, LVar0, 3, EVENT_HIT)
     // Call(EnemyDamageTarget, ACTOR_SELF, LVar0, DAMAGE_TYPE_IGNORE_DEFENSE | DAMAGE_TYPE_MULTIPLE_POPUPS | DAMAGE_TYPE_FIRE, SUPPRESS_EVENT_ALL, 0, 3, BS_FLAGS1_TRIGGER_EVENTS)
-    Call(SetActorVar, ACTOR_ENEMY0, 1, TRUE)
+    Call(SetActorVar, ACTOR_ENEMY0, 1, true)
     SetConst(LVar0, PRT_MAIN)
     SetConst(LVar1, ANIM_Goomates_Red_BurnStill)
     Set(LVar2, EXEC_DEATH_NO_SPINNING)
@@ -928,7 +928,7 @@ EvtScript EVS_Init_Inner = {
     Call(BindHandleEvent, ACTOR_SELF, Ref(EVS_HandleEvent))
     Call(BindHandlePhase, ACTOR_SELF, Ref(EVS_HandlePhase))
     Call(SetActorVar, ACTOR_SELF, AVAR_TurnCount, 1)
-    Call(SetActorVar, ACTOR_SELF, AVAR_ValorUp, FALSE)
+    Call(SetActorVar, ACTOR_SELF, AVAR_ValorUp, false)
     Return
     End
 };
@@ -939,14 +939,14 @@ EvtScript EVS_Idle = {
 };
 
 EvtScript EVS_HandleEvent = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(1.0), Float(1.0))
     Call(GetLastEvent, ACTOR_SELF, LVar0)
     Switch(LVar0)
         CaseOrEq(EVENT_HIT_COMBO)
         CaseOrEq(EVENT_HIT)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -958,7 +958,7 @@ EvtScript EVS_HandleEvent = {
             Wait(25)
         EndCaseGroup
         CaseEq(EVENT_BURN_HIT)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -970,8 +970,8 @@ EvtScript EVS_HandleEvent = {
             ExecWait(EVS_Enemy_BurnHit)
             Wait(25)
         CaseEq(EVENT_BURN_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, FALSE)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, false)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -990,7 +990,7 @@ EvtScript EVS_HandleEvent = {
             Wait(25)
             Return
         CaseEq(EVENT_SPIN_SMASH_HIT)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -1001,8 +1001,8 @@ EvtScript EVS_HandleEvent = {
             ExecWait(EVS_Enemy_SpinSmashHit)
             Wait(25)
         CaseEq(EVENT_SPIN_SMASH_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, FALSE)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, false)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -1020,7 +1020,7 @@ EvtScript EVS_HandleEvent = {
             Wait(25)
             Return
         CaseEq(EVENT_SHOCK_HIT)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -1032,21 +1032,21 @@ EvtScript EVS_HandleEvent = {
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_Goomates_Blue_Hurt)
             ExecWait(EVS_Enemy_Knockback)
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Blue_Dizzy)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Wait(5)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Blue_Idle)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.6))
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Wait(20)
         CaseEq(EVENT_SHOCK_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, FALSE)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, false)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -1068,7 +1068,7 @@ EvtScript EVS_HandleEvent = {
         CaseOrEq(EVENT_ZERO_DAMAGE)
         CaseOrEq(EVENT_IMMUNE)
         CaseOrEq(EVENT_AIR_LIFT_FAILED)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -1080,8 +1080,8 @@ EvtScript EVS_HandleEvent = {
             Wait(25)
         EndCaseGroup
         CaseEq(EVENT_DEATH)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, FALSE)
-            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, TRUE)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_HitBlue, false)
+            Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_BlueDead, true)
             Call(GetActorPos, ACTOR_ENEMY1, LVar0, LVar1, LVar2)
             Add(LVar1, 20)
             Call(PlaySoundAtActor, ACTOR_ENEMY1, SOUND_EMOTE_IDEA)
@@ -1104,7 +1104,7 @@ EvtScript EVS_HandleEvent = {
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Blue_Run)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(4.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(HPBarToHome, ACTOR_SELF)
         CaseEq(EVENT_RECOVER_STATUS)
@@ -1130,31 +1130,31 @@ EvtScript EVS_HandleEvent = {
     EndSwitch
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Blue_Idle)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_TakeTurn = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(GetActorVar, ACTOR_SELF, AVAR_TurnCount, LVar3)
     // IfEq(LVar3, 3)
     //     Call(SetDefenseTable, ACTOR_SELF, PRT_MAIN, Ref(DefenseTable))
     //     Call(SetDefenseTable, ACTOR_ENEMY1, PRT_MAIN, Ref(DefenseTable))
     //     Call(SetDefenseTable, ACTOR_ENEMY0, PRT_MAIN, Ref(KuriboDefense))
-    //     Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_Weakened, FALSE)
+    //     Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_Weakened, false)
     // EndIf
     ExecWait(EVS_Move_Heal)
     Call(AddActorVar, ACTOR_SELF, AVAR_TurnCount, 1)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_Move_Heal = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
     Call(UseBattleCamPreset, BTL_CAM_ACTOR)
@@ -1171,9 +1171,9 @@ EvtScript EVS_Move_Heal = {
         Call(PlaySoundAtActor, ACTOR_ENEMY0, SOUND_STAR_BOUNCE_A)
     EndThread
     Thread
-        Call(FreezeBattleState, TRUE)
-        Call(HealActor, ACTOR_ENEMY0, amtHeal, FALSE)
-        Call(FreezeBattleState, FALSE)
+        Call(FreezeBattleState, true)
+        Call(HealActor, ACTOR_ENEMY0, amtHeal, false)
+        Call(FreezeBattleState, false)
     EndThread
     Call(WaitForBuffDone)
     Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
@@ -1183,13 +1183,13 @@ EvtScript EVS_Move_Heal = {
     Wait(10)
     Call(YieldTurn)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_Move_ValorUp = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
     Call(UseBattleCamPreset, BTL_CAM_ACTOR)
@@ -1205,7 +1205,7 @@ EvtScript EVS_Move_ValorUp = {
     Call(SetDefenseTable, ACTOR_SELF, PRT_MAIN, Ref(BoostedDefense))
     Call(SetDefenseTable, ACTOR_ENEMY1, PRT_MAIN, Ref(BoostedDefense))
     Call(SetDefenseTable, ACTOR_ENEMY0, PRT_MAIN, Ref(NormalDefense))
-    Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_Weakened, TRUE)
+    Call(SetActorVar, ACTOR_ENEMY1, red_mate::AVAR_Weakened, true)
     Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goomates_Blue_Idle)
     Wait(1)
@@ -1214,32 +1214,32 @@ EvtScript EVS_Move_ValorUp = {
     Wait(10)
     // Call(YieldTurn)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_HandlePhase = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     // Call(GetBattlePhase, LVar0)
     // Switch(LVar0)
     //     CaseEq(PHASE_PLAYER_BEGIN)
     //         Call(GetActorVar, ACTOR_SELF, AVAR_ValorUp, LVar3)
-    //         IfEq(LVar3, FALSE)
-    //             Call(SetActorVar, ACTOR_SELF, AVAR_ValorUp, TRUE)
+    //         IfEq(LVar3, false)
+    //             Call(SetActorVar, ACTOR_SELF, AVAR_ValorUp, true)
     //             // Call(UseBattleCamPreset, BTL_CAM_ACTOR)
     //             // Call(BattleCamTargetActor, ACTOR_SELF)
     //             // Call(MoveBattleCamOver, 30)
     //             // Wait(30)
     //             // ExecWait(EVS_Move_ValorUp)
-    //             // Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    //             // Call(UseIdleAnimation, ACTOR_SELF, false)
     //             // Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     //             // Call(UseBattleCamPreset, BTL_CAM_ACTOR)
     //             // Call(BattleCamTargetActor, ACTOR_SELF)
     //             // Call(MoveBattleCamOver, 30)
     //             // Wait(30)
-    //             // Call(UseIdleAnimation, ACTOR_ENEMY1, FALSE)
+    //             // Call(UseIdleAnimation, ACTOR_ENEMY1, false)
     //             Call(EnableIdleScript, ACTOR_ENEMY1, IDLE_SCRIPT_DISABLE)
     //             Call(UseBattleCamPreset, BTL_CAM_ACTOR)
     //             Call(BattleCamTargetActor, ACTOR_ENEMY1)
@@ -1249,9 +1249,9 @@ EvtScript EVS_HandlePhase = {
     //     CaseEq(PHASE_ENEMY_BEGIN)
     // EndSwitch
     // Call(EnableIdleScript, ACTOR_ENEMY1, IDLE_SCRIPT_ENABLE)
-    // Call(UseIdleAnimation, ACTOR_ENEMY1, TRUE)
+    // Call(UseIdleAnimation, ACTOR_ENEMY1, true)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };

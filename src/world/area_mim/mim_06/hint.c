@@ -3,7 +3,7 @@
 
 #include "world/common/util/GetFirstTriangleNormal.inc.c"
 
-API_CALLABLE(N(GetFlowerNormal)) {
+API_CALLABLE(GetFlowerNormal) {
     Bytecode* args = script->ptrReadPos;
     s32 modelID = evt_get_variable(script, *args++);
     s32 treeIndex = get_model_list_index_from_tree_index(modelID);
@@ -26,25 +26,25 @@ API_CALLABLE(N(GetWitherTranslation)) {
     return ApiStatus_DONE2;
 }
 
-s32 N(FlowerModels_South)[] = {
+s32 FlowerModels_South[] = {
     MODEL_sa_1, MODEL_sa_2,
     MODEL_sb_1, MODEL_sb_2,
     MODEL_sc_1, MODEL_sc_2,
 };
 
-s32 N(FlowerModels_West)[] = {
+s32 FlowerModels_West[] = {
     MODEL_wa_1, MODEL_wa_2,
     MODEL_wb_1, MODEL_wb_2,
     MODEL_wc_1, MODEL_wc_2,
 };
 
-s32 N(FlowerModels_North)[] = {
+s32 FlowerModels_North[] = {
     MODEL_na_1, MODEL_na_2,
     MODEL_nb_1, MODEL_nb_2,
     MODEL_nc_1, MODEL_nc_2,
 };
 
-s32 N(FlowerModels_East)[] = {
+s32 FlowerModels_East[] = {
     MODEL_ea_1, MODEL_ea_2,
     MODEL_eb_1, MODEL_eb_2,
     MODEL_ec_1, MODEL_ec_2,
@@ -64,18 +64,18 @@ EvtScript N(EVS_FlowersWither) = {
         Call(N(GetWitherTranslation), LVar0, LVar2)
         Sub(LVar1, 1)
         Call(TranslateModel, LVarA, 0, LVar1, LVar2)
-        Call(N(GetFlowerNormal), LVarA, LVar7, LVar8, LVar9)
+        Call(GetFlowerNormal, LVarA, LVar7, LVar8, LVar9)
         Call(RotateModel, LVarA, LVar0, LVar7, LVar8, LVar9)
         Call(ScaleModel, LVarA, LVar3, LVar3, LVar3)
         Call(TranslateModel, LVarB, 0, LVar1, LVar2)
-        Call(N(GetFlowerNormal), LVarA, LVar7, LVar8, LVar9)
+        Call(GetFlowerNormal, LVarA, LVar7, LVar8, LVar9)
         Call(RotateModel, LVarB, LVar0, LVar7, LVar8, LVar9)
         Call(ScaleModel, LVarB, LVar3, LVar3, LVar3)
         MulF(LVar3, Float(0.965))
         Wait(2)
     EndLoop
-    Call(EnableModel, LVarA, FALSE)
-    Call(EnableModel, LVarB, FALSE)
+    Call(EnableModel, LVarA, false)
+    Call(EnableModel, LVarB, false)
     Return
     End
 };
@@ -88,10 +88,10 @@ EvtScript N(EVS_InspectFlowers_South) = {
     Call(MakeLerp, 0, 30, 50, EASING_COS_IN_OUT)
     Label(0)
     Call(UpdateLerp)
-    UseBuf(Ref(N(FlowerModels_South)))
+    UseBuf(Ref(FlowerModels_South))
     Loop(3)
         BufRead2(LVar2, LVar3)
-        Call(N(GetFlowerNormal), LVar2, LVar7, LVar8, LVar9)
+        Call(GetFlowerNormal, LVar2, LVar7, LVar8, LVar9)
         Call(RotateModel, LVar2, LVar0, LVar7, LVar8, LVar9)
         Call(RotateModel, LVar3, LVar0, LVar7, LVar8, LVar9)
     EndLoop
@@ -103,10 +103,10 @@ EvtScript N(EVS_InspectFlowers_South) = {
     Call(MakeLerp, 30, -30, 50, EASING_COS_IN_OUT)
     Label(10)
     Call(UpdateLerp)
-    UseBuf(Ref(N(FlowerModels_South)))
+    UseBuf(Ref(FlowerModels_South))
     Loop(3)
         BufRead2(LVar2, LVar3)
-        Call(N(GetFlowerNormal), LVar2, LVar7, LVar8, LVar9)
+        Call(GetFlowerNormal, LVar2, LVar7, LVar8, LVar9)
         Call(RotateModel, LVar2, LVar0, LVar7, LVar8, LVar9)
         Call(RotateModel, LVar3, LVar0, LVar7, LVar8, LVar9)
     EndLoop
@@ -118,10 +118,10 @@ EvtScript N(EVS_InspectFlowers_South) = {
     Call(MakeLerp, -30, 0, 50, EASING_COS_IN_OUT)
     Label(20)
     Call(UpdateLerp)
-    UseBuf(Ref(N(FlowerModels_South)))
+    UseBuf(Ref(FlowerModels_South))
     Loop(3)
         BufRead2(LVar2, LVar3)
-        Call(N(GetFlowerNormal), LVar2, LVar7, LVar8, LVar9)
+        Call(GetFlowerNormal, LVar2, LVar7, LVar8, LVar9)
         Call(RotateModel, LVar2, LVar0, LVar7, LVar8, LVar9)
         Call(RotateModel, LVar3, LVar0, LVar7, LVar8, LVar9)
     EndLoop
@@ -142,7 +142,7 @@ EvtScript N(EVS_InspectFlowers_West) = {
     Call(SetTexPanOffset, TEX_PANNER_1, TEX_PANNER_MAIN, 0, -0x10000)
     Wait(15)
     Call(PlaySoundAt, SOUND_FLOWERS_WITHER, SOUND_SPACE_DEFAULT, -300, 0, -10)
-    UseBuf(Ref(N(FlowerModels_West)))
+    UseBuf(Ref(FlowerModels_West))
     BufRead2(LVarA, LVarB)
     Exec(N(EVS_FlowersWither))
     BufRead2(LVarA, LVarB)
@@ -160,7 +160,7 @@ EvtScript N(EVS_InspectFlowers_North) = {
     Call(SetTexPanOffset, TEX_PANNER_2, TEX_PANNER_MAIN, 0, -0x10000)
     Wait(15)
     Call(PlaySoundAt, SOUND_FLOWERS_WITHER, SOUND_SPACE_DEFAULT, 10, 0, 300)
-    UseBuf(Ref(N(FlowerModels_North)))
+    UseBuf(Ref(FlowerModels_North))
     BufRead2(LVarA, LVarB)
     Exec(N(EVS_FlowersWither))
     BufRead2(LVarA, LVarB)
@@ -178,7 +178,7 @@ EvtScript N(EVS_InspectFlowers_East) = {
     Call(SetTexPanOffset, TEX_PANNER_3, TEX_PANNER_MAIN, 0, -0x10000)
     Wait(15)
     Call(PlaySoundAt, SOUND_FLOWERS_WITHER, SOUND_SPACE_DEFAULT, 300, 0, -10)
-    UseBuf(Ref(N(FlowerModels_East)))
+    UseBuf(Ref(FlowerModels_East))
     BufRead2(LVarA, LVarB)
     Exec(N(EVS_FlowersWither))
     BufRead2(LVarA, LVarB)

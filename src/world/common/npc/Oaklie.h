@@ -20,3 +20,23 @@
     .anim_E = ANIM_Oaklie_Idle, \
     .anim_F = ANIM_Oaklie_Idle, \
 }
+
+#define DUPI_OAKLIE_ANIMS \
+{ \
+    .idle   = ANIM_Oaklie_Dupi_Idle, \
+    .walk   = ANIM_Oaklie_Dupi_Idle, \
+    .run    = ANIM_Oaklie_Dupi_Idle, \
+    .chase  = ANIM_Oaklie_Dupi_Idle, \
+    .anim_4 = ANIM_Oaklie_Dupi_Idle, \
+    .anim_5 = ANIM_Oaklie_Dupi_Idle, \
+    .death  = ANIM_Oaklie_Dupi_Idle, \
+    .hit    = ANIM_Oaklie_Dupi_Idle, \
+    .anim_8 = ANIM_Oaklie_Dupi_Idle, \
+    .anim_9 = ANIM_Oaklie_Dupi_Idle, \
+    .anim_A = ANIM_Oaklie_Dupi_Idle, \
+    .anim_B = ANIM_Oaklie_Dupi_Idle, \
+    .anim_C = ANIM_Oaklie_Dupi_Idle, \
+    .anim_D = ANIM_Oaklie_Dupi_Idle, \
+    .anim_E = ANIM_Oaklie_Dupi_Idle, \
+    .anim_F = ANIM_Oaklie_Dupi_Idle, \
+}

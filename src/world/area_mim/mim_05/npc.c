@@ -9,7 +9,7 @@ NpcData N(NpcData_PiranhaPlant_01)[] = {
         .yaw = 0,
         .territory = {
             .wander = {
-                .isFlying = TRUE,
+                .isFlying = true,
                 .moveSpeedOverride = NO_OVERRIDE_MOVEMENT_SPEED,
                 .wanderShape = SHAPE_CYLINDER,
                 .centerPos  = { 0, 0, 0 },
@@ -35,7 +35,7 @@ NpcData N(NpcData_PiranhaPlant_02)[] = {
         .yaw = 0,
         .territory = {
             .wander = {
-                .isFlying = TRUE,
+                .isFlying = true,
                 .moveSpeedOverride = NO_OVERRIDE_MOVEMENT_SPEED,
                 .wanderShape = SHAPE_CYLINDER,
                 .centerPos  = { 0, 0, 0 },
@@ -54,8 +54,8 @@ NpcData N(NpcData_PiranhaPlant_02)[] = {
     PIRANHA_PLANT_HITBOX(NPC_PiranhaPlant_02_Hitbox)
 };
 
-NpcGroupList N(DefaultNPCs) = {
-    NPC_GROUP(N(NpcData_PiranhaPlant_01), BTL_MIM_FORMATION_0B, BTL_MIM_STAGE_00),
-    NPC_GROUP(N(NpcData_PiranhaPlant_02), BTL_MIM_FORMATION_0A, BTL_MIM_STAGE_00),
+NpcGroupList DefaultNPCs = {
+    // NPC_GROUP(N(NpcData_PiranhaPlant_01), BTL_MIM_FORMATION_0B, BTL_MIM_STAGE_00),
+    // NPC_GROUP(N(NpcData_PiranhaPlant_02), BTL_MIM_FORMATION_0A, BTL_MIM_STAGE_00),
     {}
 };

@@ -94,7 +94,7 @@ EvtScript N(EVS_InspectMushrooms_East) = {
     End
 };
 
-EvtScript N(EVS_SetupExitHint) = {
+EvtScript EVS_SetupExitHint = {
     Call(SetTexPanner, MODEL_o402, TEX_PANNER_0)
     Call(SetTexPanner, MODEL_o510, TEX_PANNER_0)
     Call(SetTexPanner, MODEL_o511, TEX_PANNER_0)

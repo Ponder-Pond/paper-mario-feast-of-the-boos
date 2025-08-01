@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpriteSheet maxComponents="1" paletteGroups="2">
+	<PaletteList>
+		<Palette id="0" src="Default.png"/>
+		<Palette id="1" src="Dupi.png"/>
+	</PaletteList>
+	<RasterList>
+		<Raster id="0" name="Idle1" palette="0" src="Idle1.png"/>
+		<Raster id="1" name="Idle2" palette="0" src="Idle2.png"/>
+		<Raster id="2" name="Idle3" palette="0" src="Idle3.png"/>
+		<Raster id="3" name="Talk" palette="0" src="Talk.png"/>
+		<Raster id="4" name="Jump1" palette="0" src="Jump1.png"/>
+		<Raster id="5" name="Jump2" palette="0" src="Jump2.png"/>
+		<Raster id="6" name="Fall" palette="0" src="Fall.png"/>
+		<Raster id="7" name="Land1" palette="0" src="Land1.png"/>
+		<Raster id="8" name="Land2" palette="0" src="Land2.png"/>
+		<Raster id="9" name="TakePass1" palette="0" src="TakePass1.png"/>
+		<Raster id="A" name="TakePass2" palette="0" src="TakePass2.png"/>
+		<Raster id="B" name="Read1" palette="0" src="Read1.png"/>
+		<Raster id="C" name="Read2" palette="0" src="Read2.png"/>
+		<Raster id="D" name="Read3" palette="0" src="Read3.png"/>
+		<Raster id="E" name="ReadAloud" palette="0" src="ReadAloud.png"/>
+	</RasterList>
+	<AnimationList>
+		<Animation name="Still">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="1000"/>
+				<Command val="2"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+		<Animation name="Idle">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="1000"/>
+				<Command val="8"/>
+				<Command val="1001"/>
+				<Command val="8"/>
+				<Command val="1000"/>
+				<Command val="8"/>
+				<Command val="1002"/>
+				<Command val="8"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+		<Animation name="Talk">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="1003"/>
+				<Command val="6"/>
+				<Command val="1000"/>
+				<Command val="6"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+		<Animation name="Jump">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="1004"/>
+				<Command val="6"/>
+				<Command val="1005"/>
+				<Command val="4"/>
+				<Command val="2004"/>
+			</Component>
+		</Animation>
+		<Animation name="Fall">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="3001"/>
+				<Command val="0"/>
+				<Command val="A"/>
+				<Command val="0"/>
+				<Command val="1006"/>
+				<Command val="6"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+		<Animation name="Land">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="1007"/>
+				<Command val="4"/>
+				<Command val="1000"/>
+				<Command val="2"/>
+				<Command val="1008"/>
+				<Command val="2"/>
+				<Command val="2008"/>
+			</Component>
+		</Animation>
+		<Animation name="TakePass">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="1009"/>
+				<Command val="6"/>
+				<Command val="3001"/>
+				<Command val="FFF8"/>
+				<Command val="0"/>
+				<Command val="0"/>
+				<Command val="100A"/>
+				<Command val="2"/>
+				<Command val="2004"/>
+			</Component>
+		</Animation>
+		<Animation name="Read">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="100B"/>
+				<Command val="6"/>
+				<Command val="100C"/>
+				<Command val="6"/>
+				<Command val="100D"/>
+				<Command val="6"/>
+				<Command val="2004"/>
+			</Component>
+		</Animation>
+		<Animation name="ReadAloud">
+			<Component name="Body" xyz="4,0,0">
+				<Command val="100B"/>
+				<Command val="6"/>
+				<Command val="100E"/>
+				<Command val="6"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
+	</AnimationList>
+</SpriteSheet>

@@ -1,4 +1,7 @@
-#define MODEL_Root              0x83
+#define MODEL_Root              0x86
+#define MODEL_GreenPipe         0x85
+#define MODEL_RockBlockade2     0x84
+#define MODEL_RockBlockade1     0x83
 #define MODEL_mon               0x82
 #define MODEL_monw              0x81
 #define MODEL_w2                0x80

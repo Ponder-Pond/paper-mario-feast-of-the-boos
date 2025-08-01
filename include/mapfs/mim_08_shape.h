@@ -1,4 +1,9 @@
-#define MODEL_Root              0x7E
+#define MODEL_Root              0x83
+#define MODEL_RockBlockade3     0x82
+#define MODEL_RockBlockade2     0x81
+#define MODEL_RockBlockade1     0x80
+#define MODEL_Beehive2          0x7F
+#define MODEL_Beehive1          0x7E
 #define MODEL_mon               0x7D
 #define MODEL_monw              0x7C
 #define MODEL_w2                0x7B

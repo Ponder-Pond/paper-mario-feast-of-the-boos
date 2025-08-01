@@ -9,7 +9,7 @@ NpcData N(NpcData_Fuzzy) = {
     .yaw = 0,
     .territory = {
         .wander = {
-            .isFlying = TRUE,
+            .isFlying = true,
             .moveSpeedOverride = NO_OVERRIDE_MOVEMENT_SPEED,
             .wanderShape = SHAPE_CYLINDER,
             .centerPos  = { 270, 0, 200 },
@@ -26,7 +26,7 @@ NpcData N(NpcData_Fuzzy) = {
     .aiDetectFlags = AI_DETECT_SIGHT,
 };
 
-NpcGroupList N(DefaultNPCs) = {
-    NPC_GROUP(N(NpcData_Fuzzy), BTL_MIM_FORMATION_05, BTL_MIM_STAGE_00),
+NpcGroupList DefaultNPCs = {
+    // NPC_GROUP(N(NpcData_Fuzzy), BTL_MIM_FORMATION_05, BTL_MIM_STAGE_00),
     {}
 };

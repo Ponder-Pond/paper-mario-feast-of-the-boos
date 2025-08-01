@@ -1,4 +1,9 @@
-#define COLLIDER_Root           0x2B
+#define COLLIDER_Root           0x30
+#define COLLIDER_RockGroup1     0x2F
+#define COLLIDER_Rock1Col       0x2E
+#define COLLIDER_BluePipeGroup  0x2D
+#define COLLIDER_BluePipeTop    0x2C
+#define COLLIDER_BluePipeBody   0x2B
 #define COLLIDER_g60            0x2A
 #define COLLIDER_monw           0x29
 #define COLLIDER_g59            0x28
@@ -43,7 +48,9 @@
 #define COLLIDER_deilin         0x1
 #define COLLIDER_deilitn        0x0
 
-#define ZONE_Root               0xD
+#define ZONE_Root               0xF
+#define ZONE_cutscene           0xE
+#define ZONE_stagecutscene      0xD
 #define ZONE_enter              0xC
 #define ZONE_north              0xB
 #define ZONE_south              0xA

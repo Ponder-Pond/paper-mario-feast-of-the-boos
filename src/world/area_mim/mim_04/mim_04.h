@@ -19,8 +19,8 @@ enum {
 
 #define NAMESPACE mim_04
 
-extern EvtScript N(EVS_Main);
-extern EvtScript N(EVS_SetupMusic);
-extern EvtScript N(EVS_SetupGates);
-extern EvtScript N(EVS_SetupExitHint);
-extern NpcGroupList N(DefaultNPCs);
+extern EvtScript EVS_Main;
+extern EvtScript EVS_SetupMusic;
+extern EvtScript EVS_SetupGates;
+extern EvtScript EVS_SetupExitHint;
+extern NpcGroupList DefaultNPCs;

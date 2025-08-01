@@ -2055,6 +2055,47 @@ EvtScript EVS_Enemy_HopToPos = {
     End
 };
 
+// (in) LVarA: part idx
+// (in) LVar0: target posX
+// (in) LVar1: target posY
+// (in) LVar2: target posZ
+EvtScript EVS_EnemyPart_HopToPos = {
+    Call(GetPartPos, ACTOR_SELF, LVarA, LVar3, LVar4, LVar5)
+    Label(0)
+        Call(GetPartPos, ACTOR_SELF, LVarA, LVar3, LVar4, LVar5)
+        IfEq(LVar3, LVar0)
+            Goto(10)
+        EndIf
+        IfLt(LVar3, LVar0)
+            Set(LVar4, LVar0)
+            Sub(LVar4, LVar3)
+            IfLt(LVar4, 30)
+                Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+                Call(JumpPartTo, ACTOR_SELF, LVarA, LVar0, LVar1, LVar2, 5, TRUE)
+            Else
+                Set(LVar4, LVar3)
+                Add(LVar3, 30)
+                Call(SetGoalPos, ACTOR_SELF, LVar3, LVar1, LVar2)
+                Call(JumpPartTo, ACTOR_SELF, LVarA, LVar3, LVar1, LVar2, 0, TRUE)
+            EndIf
+        Else
+            Set(LVar4, LVar3)
+            Sub(LVar4, LVar0)
+            IfLt(LVar4, 30)
+                Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+                Call(JumpPartTo, ACTOR_SELF, LVarA, LVar0, LVar1, LVar2, 5, TRUE)
+            Else
+                Sub(LVar3, 30)
+                Call(SetGoalPos, ACTOR_SELF, LVar3, LVar1, LVar2)
+                Call(JumpPartTo, ACTOR_SELF, LVarA, LVar3, LVar1, LVar2, 0, TRUE)
+            EndIf
+        EndIf
+        Goto(0)
+    Label(10)
+    Return
+    End
+};
+
 EvtScript EVS_Enemy_AirLift = {
     Call(GetStatusFlags, ACTOR_SELF, LVar2)
     IfNotFlag(LVar2, STATUS_FLAGS_IMMOBILIZED)

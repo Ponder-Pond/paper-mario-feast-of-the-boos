@@ -1,5 +1,6 @@
-#ifndef _WORLD_AREA_MIM_MIM_H_
-#define _WORLD_AREA_MIM_MIM_H_
+#pragma once
+
+#include "common.h"
 
 enum {
     AB_MIM_Unused_0     = AreaByte(0),
@@ -25,19 +26,20 @@ enum {
     AF_MIM03_Oaklie_DialogueToggle  = AreaFlag(2),
     AF_MIM04_Bubulb_DialogueToggle  = AreaFlag(4),
     AF_MIM12_BackgroundLitUp        = AreaFlag(3),
+    AF_MIM_Snowing                  = AreaFlag(5),
+    AF_MIM_LastSnowing              = AreaFlag(6),
 };
 
-extern MapSettings mim_01_settings;
-extern MapSettings mim_02_settings;
-extern MapSettings mim_03_settings;
-extern MapSettings mim_04_settings;
-extern MapSettings mim_05_settings;
-extern MapSettings mim_06_settings;
-extern MapSettings mim_07_settings;
-extern MapSettings mim_08_settings;
-extern MapSettings mim_09_settings;
-extern MapSettings mim_10_settings;
-extern MapSettings mim_11_settings;
-extern MapSettings mim_12_settings;
-
-#endif
+EXTERN_C MapSettings mim_01_settings;
+// EXTERN_C MapSettings mim_02_settings;
+EXTERN_C MapSettings mim_03_settings;
+// EXTERN_C MapSettings mim_04_settings;
+// EXTERN_C MapSettings mim_05_settings;
+// EXTERN_C MapSettings mim_06_settings;
+EXTERN_C MapSettings mim_07_settings;
+EXTERN_C MapSettings mim_08_settings;
+// EXTERN_C MapSettings mim_09_settings;
+EXTERN_C MapSettings mim_10_settings;
+EXTERN_C MapSettings mim_11_settings;
+EXTERN_C MapSettings mim_12_settings;
+EXTERN_C MapSettings mim_13_settings;

@@ -983,6 +983,20 @@ void dx_debug_update_select_battle() {
 // ----------------------------------------------------------------------------
 // set story byte
 
+#define STORY_PROGRESS_START(name, value) char* StoryProgressNames[] = { \
+    #name,
+#define STORY_PROGRESS_VALUE(name) #name,
+#define STORY_PROGRESS_END };
+#include "story_progress.h"
+
+char* dx_debug_get_story_progress_name(s32 input) {
+    if (input >= 0 && input < ARRAY_COUNT(StoryProgressNames)) {
+        return StoryProgressNames[input];
+    } else {
+        return "???";
+    }
+}
+
 DebugEditableNumber DebugStoryProgress = {
     .isHex = TRUE,
     .digits = { 0, 0 },
@@ -1008,9 +1022,10 @@ void dx_debug_update_edit_progress() {
     dx_debug_nav_editable_num(&DebugStoryProgress);
 
     // draw
-    dx_debug_draw_box(SubBoxPosX, SubBoxPosY + RowHeight, 104, 2 * RowHeight + 8, WINDOW_STYLE_20, 192);
+    dx_debug_draw_box(SubBoxPosX, SubBoxPosY + RowHeight, 150, 3 * RowHeight + 8, WINDOW_STYLE_20, 192);
     dx_debug_draw_ascii("Set Progress:", DefaultColor, SubmenuPosX, SubmenuPosY + RowHeight);
     dx_debug_draw_editable_num(&DebugStoryProgress, SubmenuPosX + 35, SubmenuPosY + 2 * RowHeight);
+    dx_debug_draw_ascii(dx_debug_get_story_progress_name(dx_debug_get_editable_num(&DebugStoryProgress)), DefaultColor, SubmenuPosX, SubmenuPosY + 3 * RowHeight);
 }
 
 // ----------------------------------------------------------------------------

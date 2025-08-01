@@ -345,7 +345,7 @@ void state_step_title_screen(void) {
                     set_game_mode(GAME_MODE_DEMO);
                     break;
                 case NEXT_STATE_FILE_SELECT:
-                    gGameStatusPtr->areaID = AREA_SMB;
+                    gGameStatusPtr->areaID = AREA_MIM;
                     gGameStatusPtr->mapID = 0x0;
                     gGameStatusPtr->entryID = 0;
                     set_game_mode(GAME_MODE_FILE_SELECT);

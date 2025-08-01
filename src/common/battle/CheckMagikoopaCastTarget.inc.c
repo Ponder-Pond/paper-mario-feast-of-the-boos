@@ -37,6 +37,7 @@ API_CALLABLE(N(CheckMagikoopaCastTarget)) {
         case ACTOR_TYPE_UNUSED_62:
         case ACTOR_TYPE_UNUSED_63:
         case ACTOR_TYPE_UNUSED_64:
+        case ACTOR_TYPE_BOO_BULLY:
             evt_set_variable(script, *args++, -1);
             break;
 

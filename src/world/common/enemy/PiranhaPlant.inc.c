@@ -29,10 +29,10 @@ EvtScript N(EVS_NpcAI_PiranhaPlant) = {
 NpcSettings N(NpcSettings_PiranhaPlant) = {
     .height = 32,
     .radius = 26,
-    .level = ACTOR_LEVEL_PIRANHA_PLANT,
     .ai = &N(EVS_NpcAI_PiranhaPlant),
     .onHit = &EnemyNpcHit,
     .onDefeat = &EnemyNpcDefeat,
+    .level = ACTOR_LEVEL_PIRANHA_PLANT,
 };
 
 EvtScript N(EVS_NpcAI_PiranhaPlant_Hitbox) = {
@@ -64,8 +64,8 @@ EvtScript N(EVS_8024411C) = {
 NpcSettings N(NpcSettings_PiranhaPlant_Hitbox) = {
     .height = 18,
     .radius = 18,
-    .level = ACTOR_LEVEL_PIRANHA_PLANT,
     .ai = &N(EVS_NpcAI_PiranhaPlant_Hitbox),
     .onDefeat = &N(EVS_GenericHitboxDefeat),
+    .level = ACTOR_LEVEL_PIRANHA_PLANT,
     .actionFlags = AI_ACTION_08,
 };

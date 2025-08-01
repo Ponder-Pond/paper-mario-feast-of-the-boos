@@ -360,6 +360,7 @@ extern EvtScript EVS_Partner_Drop;
 extern EvtScript EVS_Partner_NoDamageHit;
 extern EvtScript EVS_Partner_LakilesterHit;
 extern EvtScript EVS_Enemy_HopToPos;
+extern EvtScript EVS_EnemyPart_HopToPos;
 extern EvtScript EVS_Enemy_BurnHit;
 extern EvtScript EVS_Enemy_ShockHit;
 extern EvtScript EVS_Enemy_ShockHit_Impl;

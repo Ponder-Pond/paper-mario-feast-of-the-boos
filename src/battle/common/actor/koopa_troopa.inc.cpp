@@ -73,7 +73,7 @@ ActorPartBlueprint ActorParts[] = {
         .posOffset = { 0, 0, 0 },
         .targetOffset = { -2, 36 },
         .opacity = 255,
-        .idleAnimations = N(DefaultAnims),
+        .idleAnimations = DefaultAnims,
         .defenseTable = N(NormalDefense),
         .eventFlags = ACTOR_EVENT_FLAG_FLIPABLE,
         .elementImmunityFlags = 0,
@@ -124,7 +124,7 @@ EvtScript EVS_Init = {
     Call(BindTakeTurn, ACTOR_SELF, Ref(EVS_TakeTurn))
     Call(BindIdle, ACTOR_SELF, Ref(EVS_Idle))
     Call(BindHandleEvent, ACTOR_SELF, Ref(EVS_HandleEvent))
-    Call(SetActorVar, ACTOR_SELF, AVAR_IsFlipped, FALSE)
+    Call(SetActorVar, ACTOR_SELF, AVAR_IsFlipped, false)
     Return
     End
 };
@@ -235,7 +235,7 @@ EvtScript EVS_Idle = {
 s32 FlipPosOffsets[] = { 9, 16, 22, 26, 30, 32, 33, 32, 30, 26, 22, 16, 9, 0, 4, 6, 7, 6, 4, 0, 2, 0 };
 
 EvtScript EVS_HandleEvent = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetActorYaw, ACTOR_SELF, 0)
     Call(GetLastEvent, ACTOR_SELF, LVar0)
@@ -273,13 +273,13 @@ EvtScript EVS_HandleEvent = {
             ExecWait(EVS_Enemy_Death)
             Return
         CaseEq(EVENT_FLIP_TRIGGER)
-            Call(SetActorVar, ACTOR_SELF, AVAR_IsFlipped, TRUE)
+            Call(SetActorVar, ACTOR_SELF, AVAR_IsFlipped, true)
             Call(SetActorVar, ACTOR_SELF, AVAR_FlippedTurns, 2)
             Call(SetDefenseTable, ACTOR_SELF, PRT_MAIN, Ref(FlippedDefense))
             Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(FlippedAnims))
             Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, -5, 15)
             Call(SetProjectileTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 0)
-            Call(SetActorFlagBits, ACTOR_SELF, ACTOR_FLAG_FLIPPED, TRUE)
+            Call(SetActorFlagBits, ACTOR_SELF, ACTOR_FLAG_FLIPPED, true)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_Hurt)
             Call(GetStatusFlags, ACTOR_SELF, LVarA)
             Call(SetActorRotationOffset, ACTOR_SELF, 0, 12, 0)
@@ -313,12 +313,12 @@ EvtScript EVS_HandleEvent = {
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_KoopaTroopa_Hurt)
             ExecWait(EVS_Enemy_Knockback)
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_KoopaTroopa_Run)
             ExecWait(EVS_Enemy_ReturnHome)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.6))
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
         CaseEq(EVENT_SHOCK_DEATH)
             SetConst(LVar0, PRT_MAIN)
             SetConst(LVar1, ANIM_KoopaTroopa_Hurt)
@@ -422,13 +422,13 @@ EvtScript EVS_HandleEvent = {
             EndIf
     EndSwitch
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_RESTART)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };
 
 EvtScript EVS_TakeTurn = {
-    Call(UseIdleAnimation, ACTOR_SELF, FALSE)
+    Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
     Call(GetBattlePhase, LVar0)
@@ -467,22 +467,22 @@ EvtScript EVS_TakeTurn = {
                 Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
                 Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
                 Call(SetActorJumpGravity, ACTOR_SELF, Float(3.0))
-                Call(JumpToGoal, ACTOR_SELF, 8, FALSE, TRUE, FALSE)
+                Call(JumpToGoal, ACTOR_SELF, 8, false, true, false)
                 Call(PlaySoundAtActor, ACTOR_SELF, SOUND_ACTOR_STEP_A)
                 Call(SetActorRotationOffset, ACTOR_SELF, 0, 0, 0)
                 Call(SetActorRotation, ACTOR_SELF, 0, 0, 0)
                 Call(SetActorDispOffset, ACTOR_SELF, 0, 0, 0)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_Idle)
-                Call(SetActorVar, ACTOR_SELF, AVAR_IsFlipped, FALSE)
+                Call(SetActorVar, ACTOR_SELF, AVAR_IsFlipped, false)
                 Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(DefaultAnims))
                 Call(SetDefenseTable, ACTOR_SELF, PRT_MAIN, Ref(NormalDefense))
                 Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, -4, 32)
                 Call(SetProjectileTargetOffset, ACTOR_SELF, PRT_MAIN, -1, -4)
-                Call(SetActorFlagBits, ACTOR_SELF, ACTOR_FLAG_FLIPPED, FALSE)
+                Call(SetActorFlagBits, ACTOR_SELF, ACTOR_FLAG_FLIPPED, false)
                 Call(ResetActorSounds, ACTOR_SELF, ACTOR_SOUND_JUMP)
             EndIf
             Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-            Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+            Call(UseIdleAnimation, ACTOR_SELF, true)
             Return
         EndIf
         Call(UseBattleCamPreset, BTL_CAM_ENEMY_APPROACH)
@@ -502,7 +502,7 @@ EvtScript EVS_TakeTurn = {
         Call(PlaySoundAtActor, ACTOR_SELF, SOUND_SHELL_SPIN)
         Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_ShellSpin)
         Wait(10)
-        Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, FALSE)
+        Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, false)
     EndIf
     Call(PlaySoundAtActor, ACTOR_SELF, SOUND_SHELL_TOSS)
     Call(SetActorSounds, ACTOR_SELF, ACTOR_SOUND_WALK, SOUND_NONE, SOUND_NONE)
@@ -514,14 +514,14 @@ EvtScript EVS_TakeTurn = {
             Call(SetGoalToTarget, ACTOR_SELF)
             Call(AddGoalPos, ACTOR_SELF, -40, 0, 0)
             Call(SetActorSpeed, ACTOR_SELF, Float(16.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(GetBattlePhase, LVar0)
             IfEq(LVar0, PHASE_FIRST_STRIKE)
                 Call(UseBattleCamPreset, BTL_CAM_ACTOR_TARGET_MIDPOINT)
                 Call(SetBattleCamDist, 300)
                 Call(SetBattleCamOffsetY, 20)
                 Call(MoveBattleCamOver, 10)
-                Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, FALSE)
+                Call(SetBattleCamTargetingModes, BTL_CAM_YADJ_TARGET, BTL_CAM_XADJ_AVG, false)
             EndIf
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_ShellExit)
             Wait(8)
@@ -538,12 +538,12 @@ EvtScript EVS_TakeTurn = {
             Add(LVar1, 20)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(2.0))
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_Panic)
             Wait(6)
             Sub(LVar1, 20)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 5, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
             Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
             Call(YieldTurn)
             Call(SetActorYaw, ACTOR_SELF, 180)
@@ -551,19 +551,19 @@ EvtScript EVS_TakeTurn = {
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_Panic)
             Call(SetGoalToHome, ACTOR_SELF)
             Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
-            Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+            Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_Idle)
             Call(RemoveActorDecoration, ACTOR_SELF, PRT_MAIN, 0)
             Call(SetPartYaw, ACTOR_SELF, PRT_MAIN, 0)
             Call(SetActorYaw, ACTOR_SELF, 0)
             Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-            Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+            Call(UseIdleAnimation, ACTOR_SELF, true)
             Return
         EndCaseGroup
     EndSwitch
     Call(SetGoalToTarget, ACTOR_SELF)
     Call(SetActorSpeed, ACTOR_SELF, Float(16.0))
-    Call(RunToGoal, ACTOR_SELF, 0, FALSE)
+    Call(RunToGoal, ACTOR_SELF, 0, false)
     Call(ResetAllActorSounds, ACTOR_SELF)
     Wait(2)
     Call(EnemyDamageTarget, ACTOR_SELF, LVar0, 0, SUPPRESS_EVENT_ALL, 0, dmgShellToss, BS_FLAGS1_TRIGGER_EVENTS)
@@ -576,13 +576,13 @@ EvtScript EVS_TakeTurn = {
             Set(LVar1, 0)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.8))
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 10, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 10, false, true, false)
             Add(LVar0, 30)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 8, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 8, false, true, false)
             Add(LVar0, 20)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 6, FALSE, TRUE, FALSE)
+            Call(JumpToGoal, ACTOR_SELF, 6, false, true, false)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_KoopaTroopa_ShellExit)
             Wait(8)
             Call(YieldTurn)
@@ -593,7 +593,7 @@ EvtScript EVS_TakeTurn = {
         EndCaseGroup
     EndSwitch
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
-    Call(UseIdleAnimation, ACTOR_SELF, TRUE)
+    Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
     End
 };

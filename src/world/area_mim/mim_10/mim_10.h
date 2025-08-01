@@ -12,6 +12,8 @@
 #include "sprite/npc/Bootler.h"
 #include "sprite/npc/JrTroopa.h"
 
+namespace mim_10 {
+
 enum {
     NPC_Bootler         = 0,
     NPC_JrTroopa        = 1,
@@ -21,10 +23,10 @@ enum {
     MV_Unk_00           = MapVar(0),
 };
 
-#define NAMESPACE mim_10
+extern EvtScript EVS_Main;
+extern EvtScript EVS_SetupBootlerTrigger;
+extern EvtScript EVS_SetupMusic;
+extern EvtScript EVS_MakeEntities;
+extern NpcGroupList DefaultNPCs;
 
-extern EvtScript N(EVS_Main);
-extern EvtScript N(EVS_SetupBootlerTrigger);
-extern EvtScript N(EVS_SetupMusic);
-extern EvtScript N(EVS_MakeEntities);
-extern NpcGroupList N(DefaultNPCs);
+}; // namespace mim_10

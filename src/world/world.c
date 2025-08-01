@@ -308,11 +308,76 @@ s32 map_init_mac_tex(void) {
     return FALSE;
 }
 
-/// Credits
-#include "area_end/end.h"
-MapConfig end_maps[] = {
-    { MAP_WITH_INIT(end_00) },
-    { MAP_WITH_INIT(end_01) },
+/// Forever Forest
+#include "area_mim/mim.h"
+MapConfig mim_maps[] = {
+    { MAP(mim_01), .bgName = "fob_bg", .songVariation = 1, .sfxReverb = 2 },
+    // { MAP(mim_02), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 2 },
+    { MAP(mim_03), .bgName = "fob_bg", .songVariation = 1, .sfxReverb = 2 },
+    // { MAP(mim_04), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 2 },
+    // { MAP(mim_05), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 2 },
+    // { MAP(mim_06), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 2 },
+    { MAP(mim_07), .bgName = "fob_bg", .songVariation = 1, .sfxReverb = 2 },
+    { MAP(mim_08), .bgName = "fob_bg", .songVariation = 1, .sfxReverb = 2 },
+    // { MAP(mim_09), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 2 },
+    { MAP(mim_10), .bgName = "nok_bg" },
+    { MAP(mim_11), .bgName = "fob_bg", .songVariation = 1, .sfxReverb = 2 },
+    { MAP(mim_12), .bgName = "arn_bg", .songVariation = 1, .sfxReverb = 2 },
+    { MAP(mim_13), .bgName = "fob_bg", .sfxReverb = 2 },
+};
+
+/// Boo's Mansion
+#include "area_obk/obk.h"
+MapConfig obk_maps[] = {
+    { MAP(obk_01), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(obk_02), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_03), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_04), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_05), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_06), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_07), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_08), .bgName = "obk_bg", .songVariation = 1, .sfxReverb = 1 },
+    { MAP(obk_09), .songVariation = 1, .sfxReverb = 2 },
+};
+
+/// Gusty Gulch
+#include "area_arn/arn.h"
+MapConfig arn_maps[] = {
+    { MAP(arn_02), .bgName = "arn_bg" },
+    { MAP(arn_03), .bgName = "arn_bg" },
+    { MAP(arn_04), .bgName = "arn_bg" },
+    { MAP(arn_05), .bgName = "arn_bg" },
+    { MAP(arn_07), .bgName = "arn_bg" },
+    { MAP(arn_08), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(arn_09), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(arn_10), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(arn_11), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(arn_12), .songVariation = 1, .sfxReverb = 1 },
+    { MAP(arn_13), .songVariation = 1, .sfxReverb = 1 },
+};
+
+/// Tubba Blubba's Castle
+#include "area_dgb/dgb.h"
+MapConfig dgb_maps[] = {
+    { MAP_WITH_INIT(dgb_00), .bgName = "arn_bg" },
+    { MAP(dgb_01), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_02), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_03), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_04), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_05), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_06), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_07), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_08), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_09), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_10), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_11), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_12), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_13), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_14), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_15), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_16), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_17), .songVariation = 1, .sfxReverb = 2 },
+    { MAP(dgb_18), .songVariation = 1, .sfxReverb = 2 },
 };
 
 /// Game Over
@@ -321,16 +386,14 @@ MapConfig gv_maps[] = {
     { MAP(gv_01) },
 };
 
-/// Train
-#include "area_trn/trn.h"
-MapConfig trn_maps[] = {
-    { MAP(trn_01) },
-};
-
 
 AreaConfig gAreas[] = {
-    AREA(end, "エンディング"),  // endingu [Ending]
+    // AREA(end, "エンディング"),  // endingu [Ending]
     AREA(gv, "ゲームオーバー"),  // ge-mu o-ba- [Game Over]
-    AREA(trn, "Train"),
+    // AREA(tst, "テストマップ"),  // tesuto mappu [Test map]
+    AREA(mim, "迷いの森"),  // mayoi no mori [lost forest, Forever Forest]
+    AREA(obk, "テレサハウス"),  // teresa hausu [teresa house, Boo's Mansion]
+    AREA(arn, "あれの"),  // areno [wasteland, Gusty Gulch]
+    AREA(dgb, "ドガボンの城"),  // dogabon no shiro [dogabon's castle, Tubba Blubba's Castle]
     {},
 };
