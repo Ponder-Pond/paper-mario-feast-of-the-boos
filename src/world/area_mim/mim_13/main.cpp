@@ -1,6 +1,6 @@
-#include "mim_13.h"
+#include "sff_07.h"
 
-namespace mim_13 {
+namespace sff_07 {
 
 #include "../common/ManageSnowfall.inc.cpp"
 
@@ -127,7 +127,7 @@ EntryList Entrances = {
     {  GEN_ENTRY1_VEC, GEN_ENTRY1_DIR },
 };
 
-}; // namespace mim_13
+}; // namespace sff_07
 
 MapSettings mim_13_settings = {
     .main = &mim_13::EVS_Main,

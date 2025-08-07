@@ -9,7 +9,7 @@
 
 enum BattleAreaIDs {
     BTL_AREA_KMR_1         = 0x00,
-    BTL_AREA_FOB1          = 0x00,
+    BTL_AREA_SFF           = 0x00,
     BTL_AREA_KMR_2         = 0x01,
     BTL_AREA_KMR_3         = 0x02,
     BTL_AREA_MAC           = 0x03,

@@ -8,7 +8,7 @@
 #include "dx/debug_menu.h"
 
 #include "area/kmr_part_1/area.hpp"
-#include "area/fob1/area.hpp"
+#include "area/sff/area.hpp"
 
 
 extern "C" {
@@ -111,7 +111,7 @@ BattleArea gBattleAreas[] = {
     // BTL_AREA_AUX(omo2_4, "OMO2 4"),
     // BTL_AREA_AUX(omo2_5, "OMO2 5"),
     // BTL_AREA_AUX(omo2_6, "OMO2 6"),
-    BTL_AREA(fob1, "FOB1")
+    BTL_AREA(sff, "SFF")
 };
 
 void reset_battle_status(void) {

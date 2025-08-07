@@ -79,7 +79,7 @@ NpcData NpcData_FreezyFuzzy = {
 };
 
 NpcGroupList DefaultNPCs = {
-    NPC_GROUP(NpcData_FreezyFuzzy, BTL_FOB1_FORMATION_00, BTL_FOB1_STAGE_00),
+    NPC_GROUP(NpcData_FreezyFuzzy, BTL_SFF_FORMATION_00, BTL_SFF_STAGE_00),
     {}
 };
 

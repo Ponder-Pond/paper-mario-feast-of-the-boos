@@ -6047,6 +6047,15 @@ segments:
 ####################
 ### Battle Areas ###
 ####################
+  - dir: battle/area/sff
+    type: code
+    start: auto
+    vram_class: battle_area
+    subalign: 8
+    subsegments:
+    - [auto, cpp, area]
+    - [auto, cpp, stage/sff_bt01]
+    - [auto, cpp, stage/sff_bt02]
   # - dir: battle/area/kmr_part_1
   #   type: code
   #   start: 0x4309A0
@@ -6861,16 +6870,6 @@ segments:
   #   - [auto, c, script/dig_03]
   #   - [auto, c, script/dig_04]
   #   - [auto, c, script/dig_05]
-  - dir: battle/area/fob1 # Feast of the Boos Battle Area
-    type: code
-    start: auto
-    vram_class: battle_area
-    subalign: 8
-    subsegments:
-    - [auto, cpp, area]
-    - [auto, cpp, stage/fob_bt01]
-    - [auto, cpp, stage/fob_bt02]
-
 
 #######################
 ### Battle Partners ###
@@ -8075,16 +8074,65 @@ segments:
 ############
 ### maps ###
 ############
+  # - name: end_00
+  #   dir: world/area_end/end_00
+  #   type: code
+  #   start: 0xDF6A00
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, credits]
+  #   - [auto, c, parade_setup]
+  #   - [auto, c, allies]
+  #   - [auto, c, koopas]
+  #   - [auto, c, caravan]
+  #   - [auto, c, boos]
+  #   - [auto, c, yoshis]
+  #   - [auto, c, huff_n_puff]
+  #   - [auto, c, crystal_king]
+  #   - [auto, c, bowser]
+  # - name: end_01
+  #   dir: world/area_end/end_01
+  #   type: code
+  #   start: 0xE05360
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, credits]
+  #   - [auto, c, parade_setup]
+  #   - [auto, c, opera_float]
+  #   - [auto, c, flower_float]
+  #   - [auto, c, shyguy_float]
+  #   - [auto, c, peach_float]
   - name: gv_01
     dir: world/area_gv/gv_01
     type: code
-    start: auto
+    start: 0xE1E460
     vram_class: map
     subsegments:
     - [auto, c, settings]
     - [auto, c, main]
-  - name: mim_01
-    dir: world/area_mim/mim_01
+  # - name: trn_01
+  #   dir: world/area_trn/trn_01
+  #   type: code
+  #   start: auto
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, cpp, main]
+  #   - [auto, cpp, npc]
+  - name: sff_00
+    dir: world/area_sff/sff_00
+    type: code
+    start: auto
+    vram_class: map
+    subsegments:
+    - [auto, cpp, main]
+    - [auto, cpp, entity]
+    - [auto, cpp, npc]
+  - name: sff_01
+    dir: world/area_sff/sff_01
     type: code
     start: auto
     vram_class: map
@@ -8094,8 +8142,8 @@ segments:
     - [auto, cpp, npc]
     - [auto, cpp, hint]
     - [auto, cpp, gate]
-  - name: mim_03
-    dir: world/area_mim/mim_03
+  - name: sff_02
+    dir: world/area_sff/sff_02
     type: code
     start: auto
     vram_class: map
@@ -8105,8 +8153,8 @@ segments:
     - [auto, cpp, npc]
     - [auto, cpp, hint]
     - [auto, cpp, gate]
-  - name: mim_07
-    dir: world/area_mim/mim_07
+  - name: sff_03
+    dir: world/area_sff/sff_03
     type: code
     start: auto
     vram_class: map
@@ -8116,8 +8164,8 @@ segments:
     - [auto, cpp, npc]
     - [auto, cpp, hint]
     - [auto, cpp, gate]
-  - name: mim_08
-    dir: world/area_mim/mim_08
+  - name: sff_04
+    dir: world/area_sff/sff_04
     type: code
     start: auto
     vram_class: map
@@ -8126,17 +8174,8 @@ segments:
     - [auto, cpp, entity]
     - [auto, cpp, npc]
     - [auto, cpp, gate]
-  - name: mim_10
-    dir: world/area_mim/mim_10
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, cpp, main]
-    - [auto, cpp, entity]
-    - [auto, cpp, npc]
-  - name: mim_11
-    dir: world/area_mim/mim_11
+  - name: sff_05
+    dir: world/area_sff/sff_05
     type: code
     start: auto
     vram_class: map
@@ -8146,8 +8185,8 @@ segments:
     - [auto, cpp, npc]
     - [auto, cpp, gate]
     - [auto, cpp, foliage]
-  - name: mim_12
-    dir: world/area_mim/mim_12
+  - name: sff_06
+    dir: world/area_sff/sff_06
     type: code
     start: auto
     vram_class: map
@@ -8156,8 +8195,8 @@ segments:
     - [auto, cpp, entity]
     - [auto, cpp, npc]
     - [auto, cpp, gate]
-  - name: mim_13
-    dir: world/area_mim/mim_13
+  - name: sff_07
+    dir: world/area_sff/sff_07
     type: code
     start: auto
     vram_class: map
@@ -8165,456 +8204,6 @@ segments:
     - [auto, cpp, main]
     - [auto, cpp, entity]
     - [auto, cpp, npc]
-  - name: obk_01
-    dir: world/area_obk/obk_01
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, chandelier]
-    - [auto, c, portrait]
-    - [auto, c, jump_scare]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: obk_02
-    dir: world/area_obk/obk_02
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, bombable]
-    - [auto, c, clock]
-    - [auto, c, entity]
-  - name: obk_03
-    dir: world/area_obk/obk_03
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, shop]
-    - [auto, c, entity]
-    - [auto, c, stairs]
-    - [auto, c, npc]
-    - [auto, c, rocking_chair]
-  - name: obk_04
-    dir: world/area_obk/obk_04
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, entity]
-    - [auto, c, npc]
-    - [auto, c, main]
-    - [auto, c, hole]
-    - [auto, c, game]
-  - name: obk_05
-    dir: world/area_obk/obk_05
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, rocking_chair]
-    - [auto, c, hole]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: obk_06
-    dir: world/area_obk/obk_06
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, bombable]
-    - [auto, c, entity]
-  - name: obk_07
-    dir: world/area_obk/obk_07
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, fireplace]
-    - [auto, c, npc]
-    - [auto, c, phonograph]
-  - name: obk_08
-    dir: world/area_obk/obk_08
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, cabinets]
-    - [auto, c, entity]
-    - [auto, c, npc]
-    - [auto, c, game]
-  - name: obk_09
-    dir: world/area_obk/obk_09
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, meet_bow]
-    - [auto, c, npc]
-    - [auto, c, new_partner]
-    - [auto, c, epilogue]
-  - name: arn_02
-    dir: world/area_arn/arn_02
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: arn_03
-    dir: world/area_arn/arn_03
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: arn_04
-    dir: world/area_arn/arn_04
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: arn_05
-    dir: world/area_arn/arn_05
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: arn_07
-    dir: world/area_arn/arn_07
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, windmill]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: arn_08
-    dir: world/area_arn/arn_08
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, well]
-    - [auto, c, gears]
-    - [auto, c, demo]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: arn_09
-    dir: world/area_arn/arn_09
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, launch]
-    - [auto, c, npc]
-  - name: arn_10
-    dir: world/area_arn/arn_10
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: arn_11
-    dir: world/area_arn/arn_11
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-  - name: arn_12
-    dir: world/area_arn/arn_12
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: arn_13
-    dir: world/area_arn/arn_13
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: dgb_00
-    dir: world/area_dgb/dgb_00
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: dgb_01
-    dir: world/area_dgb/dgb_01
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: dgb_02
-    dir: world/area_dgb/dgb_02
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-  - name: dgb_03
-    dir: world/area_dgb/dgb_03
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, clock]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: dgb_04
-    dir: world/area_dgb/dgb_04
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: dgb_05
-    dir: world/area_dgb/dgb_05
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, hole]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: dgb_06
-    dir: world/area_dgb/dgb_06
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: dgb_07
-    dir: world/area_dgb/dgb_07
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: dgb_08
-    dir: world/area_dgb/dgb_08
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: dgb_09
-    dir: world/area_dgb/dgb_09
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, breakable]
-    - [auto, c, npc]
-  - name: dgb_10
-    dir: world/area_dgb/dgb_10
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, hole]
-    - [auto, c, entity]
-  - name: dgb_11
-    dir: world/area_dgb/dgb_11
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-  - name: dgb_12
-    dir: world/area_dgb/dgb_12
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, spikes]
-    - [auto, c, entity]
-  - name: dgb_13
-    dir: world/area_dgb/dgb_13
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, drawer]
-  - name: dgb_14
-    dir: world/area_dgb/dgb_14
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-  - name: dgb_15
-    dir: world/area_dgb/dgb_15
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-  - name: dgb_16
-    dir: world/area_dgb/dgb_16
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: dgb_17
-    dir: world/area_dgb/dgb_17
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, entity]
-  - name: dgb_18
-    dir: world/area_dgb/dgb_18
-    type: code
-    start: auto
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, music]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, entity]
-############
   - name: heaps2
     type: code
     start: 0xE20110
@@ -10033,4 +9622,5 @@ segments:
   - [0x1C84D30, bin, unk_1C84D30] # junk(?)
   - [0x1E00000, bin, copy_1E00000] # copy of 0x1943000 - 0x1983000
   - [0x1E40000, pm_map_data, mapfs]
+  - { name: copy_27FEE22, type: bin, start: 0x27FEE22, subalign: 2 } # copy of 0x232EE22 - 0x2330000
   - [0x2800000]

@@ -5,7 +5,7 @@
 /// Also used to sign save files created with this mod.
 /// WARNING: name must not exceed 27 characters!
 #define DX_MOD_NAME "Feast of the Boos"
-#define DX_MOD_VER_MAJOR 0 /// Increase this when you make breaking changes to the savefile format (like reordering items)
+#define DX_MOD_VER_MAJOR 1 /// Increase this when you make breaking changes to the savefile format (like reordering items)
 #define DX_MOD_VER_MINOR 0 /// Increase this when adding new features or other enchancements
 #define DX_MOD_VER_PATCH 0 /// Increase this when fixing bugs
 
@@ -29,10 +29,10 @@
 #define DX_SKIP_DEMO 1
 
 /// Map to load when starting a new game.
-#define NEW_GAME_MAP_ID "mim_01"
+#define NEW_GAME_MAP_ID "sff_01"
 
 /// Entry to use when starting a new game.
-#define NEW_GAME_ENTRY_ID mim_01_ENTRY_1
+#define NEW_GAME_ENTRY_ID sff_01_ENTRY_1
 
 /// Story progress when starting a new game.
 #define NEW_GAME_STORY_PROGRESS STORY_MOD_INTRO

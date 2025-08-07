@@ -106,7 +106,7 @@ NpcData NpcData_BooBully = {
 };
 
 NpcGroupList DefaultNPCs = {
-    NPC_GROUP(NpcData_BooBully, BTL_FOB1_FORMATION_01, BTL_FOB1_STAGE_00),
+    NPC_GROUP(NpcData_BooBully, BTL_SFF_FORMATION_01, BTL_SFF_STAGE_00),
     {}
 };
 

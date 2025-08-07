@@ -13,7 +13,7 @@
 // #include "sprite/npc/Bootler.h"
 // #include "sprite/npc/JrTroopa.h"
 
-namespace mim_13 {
+namespace sff_07 {
 
 // enum {
 //     NPC_Bootler         = 0,
@@ -29,4 +29,4 @@ extern EvtScript EVS_SetupMusic;
 extern EvtScript EVS_MakeEntities;
 extern NpcGroupList DefaultNPCs;
 
-}; // namespace mim_13
+}; // namespace sff_07

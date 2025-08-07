@@ -765,12 +765,12 @@ NpcData NpcData_Oaklie = {
 };
 
 NpcGroupList DefaultNPCs = {
-    NPC_GROUP(NpcData_FreezyFuzzy, BTL_FOB1_FORMATION_02, BTL_FOB1_STAGE_00),
-    NPC_GROUP(NpcData_PiranhaPlant, BTL_FOB1_FORMATION_03, BTL_FOB1_STAGE_00),
-    NPC_GROUP(NpcData_Beehive, BTL_FOB1_FORMATION_07, BTL_FOB1_STAGE_01),
+    NPC_GROUP(NpcData_FreezyFuzzy, BTL_SFF_FORMATION_02, BTL_SFF_STAGE_00),
+    NPC_GROUP(NpcData_PiranhaPlant, BTL_SFF_FORMATION_03, BTL_SFF_STAGE_00),
+    NPC_GROUP(NpcData_Beehive, BTL_SFF_FORMATION_07, BTL_SFF_STAGE_01),
     NPC_GROUP(NpcData_BooBully_1),
     NPC_GROUP(NpcData_BooBully_2),
-    NPC_GROUP(NpcData_Imposter, BTL_FOB1_FORMATION_08, BTL_FOB1_STAGE_00),
+    NPC_GROUP(NpcData_Imposter, BTL_SFF_FORMATION_08, BTL_SFF_STAGE_00),
     NPC_GROUP(NpcData_Oaklie),
     {}
 };

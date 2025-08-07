@@ -1,0 +1,49 @@
+#include "../area.hpp"
+// #include "entity.h"
+// #include "battle/common/stage/area_mim/mim_01.inc.c"
+
+
+namespace battle::area::sff {
+
+namespace sff_02 {
+
+#include "mapfs/sff_bt02_shape.h"
+
+#include "battle/common/stage/lib/Snowflakes.inc.c"
+
+API_CALLABLE(SetupFog) {
+    enable_world_fog();
+    set_world_fog_dist(950, 1010);
+    set_world_fog_color(75, 120, 170, 255);
+    gCameras[CAM_BATTLE].bgColor[0] = 60;
+    gCameras[CAM_BATTLE].bgColor[1] = 70;
+    gCameras[CAM_BATTLE].bgColor[2] = 90;
+
+    return ApiStatus_DONE2;
+}
+
+EvtScript EVS_PreBattle = {
+    Call(SetSpriteShading, SHADING_NONE)
+    Call(SetupFog)
+    Exec(N(EVS_SpawnSnowfall))
+    Return
+    End
+};
+
+EvtScript EVS_PostBattle = {
+    Return
+    End
+};
+
+}; // namespace sff_02
+
+Stage SnowyForeverForest2 = {
+    .texture = "sff_tex",
+    .shape = "sff_bt02_shape",
+    .hit = "sff_bt02_hit",
+    .preBattle = &sff_02::EVS_PreBattle,
+    .postBattle = &sff_02::EVS_PostBattle,
+    .bg = "sff_bg",
+};
+
+}; // namespace battle::area::sff

@@ -160,112 +160,6 @@
 - kkj_bt01_hit
 - kkj_bt02_shape
 - kkj_bt02_hit
-
-# Feast of the Boos MapFS
-- mim_01_shape
-- mim_01_hit
-# - mim_02_shape
-# - mim_02_hit
-- mim_03_shape
-- mim_03_hit
-# - mim_04_shape
-# - mim_04_hit
-# - mim_05_shape
-# - mim_05_hit
-# - mim_06_shape
-# - mim_06_hit
-- mim_07_shape
-- mim_07_hit
-- mim_08_shape
-- mim_08_hit
-# - mim_09_shape
-# - mim_09_hit
-- mim_10_shape
-- mim_10_hit
-- mim_11_shape
-- mim_11_hit
-- mim_12_shape
-- mim_12_hit
-- mim_13_shape
-- mim_13_hit
-- obk_01_shape
-- obk_01_hit
-- obk_02_shape
-- obk_02_hit
-- obk_03_shape
-- obk_03_hit
-- obk_04_shape
-- obk_04_hit
-- obk_05_shape
-- obk_05_hit
-- obk_06_shape
-- obk_06_hit
-- obk_07_shape
-- obk_07_hit
-- obk_08_shape
-- obk_08_hit
-- obk_09_shape
-- obk_09_hit
-- arn_02_shape
-- arn_02_hit
-- arn_03_shape
-- arn_03_hit
-- arn_04_shape
-- arn_04_hit
-- arn_05_shape
-- arn_05_hit
-- arn_07_shape
-- arn_07_hit
-- arn_08_shape
-- arn_08_hit
-- arn_09_shape
-- arn_09_hit
-- arn_10_shape
-- arn_10_hit
-- arn_11_shape
-- arn_11_hit
-- arn_12_shape
-- arn_12_hit
-- arn_13_shape
-- arn_13_hit
-- arn_20_shape
-- arn_20_hit
-- dgb_01_shape
-- dgb_01_hit
-- dgb_02_shape
-- dgb_02_hit
-- dgb_03_shape
-- dgb_03_hit
-- dgb_04_shape
-- dgb_04_hit
-- dgb_05_shape
-- dgb_05_hit
-- dgb_06_shape
-- dgb_06_hit
-- dgb_07_shape
-- dgb_07_hit
-- dgb_08_shape
-- dgb_08_hit
-- dgb_09_shape
-- dgb_09_hit
-- dgb_10_shape
-- dgb_10_hit
-- dgb_11_shape
-- dgb_11_hit
-- dgb_12_shape
-- dgb_12_hit
-- dgb_13_shape
-- dgb_13_hit
-- dgb_14_shape
-- dgb_14_hit
-- dgb_15_shape
-- dgb_15_hit
-- dgb_16_shape
-- dgb_16_hit
-- dgb_17_shape
-- dgb_17_hit
-- dgb_18_shape
-- dgb_18_hit
 - arn_bt01_shape
 - arn_bt01_hit
 - arn_bt02_shape
@@ -288,10 +182,6 @@
 - dgb_bt04_hit
 - dgb_bt05_shape
 - dgb_bt05_hit
-- mim_bt01_shape
-- mim_bt01_hit
-- mim_bt02_shape
-- mim_bt02_hit
 
 - mac_tex
 - tik_tex
@@ -322,6 +212,30 @@
 - mgm_tex
 - gv__tex
 
+# Feast of the Boos mapfs
+- sff_00_shape
+- sff_00_hit
+- sff_01_shape
+- sff_01_hit
+- sff_02_shape
+- sff_02_hit
+- sff_03_shape
+- sff_03_hit
+- sff_04_shape
+- sff_04_hit
+- sff_05_shape
+- sff_05_hit
+- sff_06_shape
+- sff_06_hit
+- sff_07_shape
+- sff_07_hit
+- sff_bt01_shape
+- sff_bt01_hit
+- sff_bt02_shape
+- sff_bt02_hit
+
+- sff_tex
+
 - kmr_bg
 - nok_bg
 - name: sbk_bg
@@ -340,7 +254,7 @@
 - yki_bg
 - sam_bg
 - kpa_bg
-- fob_bg
+- sff_bg
 - title_bg
 - name: title_data
   textures:
