@@ -41,7 +41,7 @@
 /// Press L + D-Pad Up to show/hide the profiler.
 #define USE_PROFILER 0
 
-#define GIVE_ALL_PARTNERS 1
+#define GIVE_BOW 1
 
 /// Skip laggy blur operations when opening the pause menu on emulator
 #define DX_PAUSE_LAG_FIX 1

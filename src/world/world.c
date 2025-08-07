@@ -362,6 +362,13 @@ s32 map_init_mac_tex(void) {
 //     { MAP(dgb_18), .songVariation = 1, .sfxReverb = 2 },
 // };
 
+#include "area_kmr/kmr.h"
+MapConfig kmr_maps[] = {
+    { MAP(kmr_20), .bgName = "kmr_bg" },
+    { MAP_WITH_INIT(kmr_22) }, // Chapter Start
+    { MAP_WITH_INIT(kmr_23) }, // Chapter End
+};
+
 /// Game Over
 #include "area_gv/gv.h"
 MapConfig gv_maps[] = {
@@ -387,6 +394,7 @@ MapConfig sff_maps[] = {
 };
 
 AreaConfig gAreas[] = {
+    AREA(kmr, "Intro / Chapter"),
     // AREA(end, "エンディング"),  // endingu [Ending]
     AREA(gv, "ゲームオーバー"),  // ge-mu o-ba- [Game Over]
     // AREA(tst, "テストマップ"),  // tesuto mappu [Test map]

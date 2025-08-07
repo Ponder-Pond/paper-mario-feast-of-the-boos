@@ -84,7 +84,7 @@ void clear_player_data(void) {
     playerData->starPower = 0;
     playerData->starBeamLevel = 0;
 
-    playerData->curPartner = PARTNER_GOOMBARIO;
+    playerData->curPartner = PARTNER_BOW;
 
     // for (i = 0; i < ARRAY_COUNT(playerData->partners); i++) {
     //     playerData->partners[i].enabled = FALSE;
@@ -95,10 +95,12 @@ void clear_player_data(void) {
     // }
 
     for (i = 0; i < ARRAY_COUNT(playerData->partners); i++) {
-        if (i == PARTNER_GOOMPA || i == PARTNER_WATT || i == PARTNER_SUSHIE || i == PARTNER_LAKILESTER || i == PARTNER_BOW || i == PARTNER_GOOMBARIA || i == PARTNER_TWINK) {
+        if (i == PARTNER_GOOMPA || i == PARTNER_GOOMBARIO || i == PARTNER_KOOPER || i == PARTNER_BOMBETTE ||
+            i == PARTNER_PARAKARRY || i == PARTNER_WATT || i == PARTNER_SUSHIE || i == PARTNER_LAKILESTER ||
+            i == PARTNER_GOOMBARIA || i == PARTNER_TWINK) {
             continue;
         }
-        #if GIVE_ALL_PARTNERS == 1
+        #if GIVE_BOW == 1
             playerData->partners[i].enabled = TRUE;
         #else
             playerData->partners[i].enabled = FALSE;
